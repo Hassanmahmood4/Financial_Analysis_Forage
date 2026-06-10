@@ -1,6 +1,17 @@
 # Financial Analysis & AI Chatbot Prototype
 
-A data-driven financial analysis project built around SEC 10-K filings for **Microsoft**, **Tesla**, and **Apple** (fiscal years 2023–2025). This repository combines structured data extraction, exploratory analysis in Jupyter, and a rule-based financial chatbot prototype designed to demonstrate how filing data can power conversational financial tools.
+Data-driven analysis of Microsoft, Tesla, and Apple 10-K filings (2023–2025), from SEC data extraction to trend insights in Jupyter.  
+Includes a rule-based Python chatbot that answers predefined financial questions using the compiled dataset.
+
+<p>
+  <img src="https://img.shields.io/static/v1?style=for-the-badge&message=python&color=111827" alt="python" height="28" />
+  <img src="https://img.shields.io/static/v1?style=for-the-badge&message=pandas&color=111827" alt="pandas" height="28" />
+  <img src="https://img.shields.io/static/v1?style=for-the-badge&message=jupyter&color=111827" alt="jupyter" height="28" />
+  <img src="https://img.shields.io/static/v1?style=for-the-badge&message=matplotlib&color=111827" alt="matplotlib" height="28" />
+  <img src="https://img.shields.io/static/v1?style=for-the-badge&message=sec%20edgar&color=111827" alt="sec edgar" height="28" />
+  <img src="https://img.shields.io/static/v1?style=for-the-badge&message=financial%20analysis&color=111827" alt="financial analysis" height="28" />
+  <img src="https://img.shields.io/static/v1?style=for-the-badge&message=chatbot&color=111827" alt="chatbot" height="28" />
+</p>
 
 **Live repository:** [github.com/Hassanmahmood4/Financial_Analysis_Forage](https://github.com/Hassanmahmood4/Financial_Analysis_Forage)
 
