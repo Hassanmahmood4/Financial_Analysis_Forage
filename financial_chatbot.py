@@ -37,3 +37,42 @@ def load_financial_data(path: Path = DATA_FILE) -> list[dict[str, object]]:
     return rows
 
 
+def format_money(value: int | float) -> str:
+    """Format dollar values in billions for readable chatbot responses."""
+    return f"${value / 1_000_000_000:,.2f} billion"
+
+
+def format_percent(value: float) -> str:
+    return f"{value:,.2f}%"
+
+
+def company_names(rows: list[dict[str, object]]) -> list[str]:
+    return sorted({str(row["Company"]) for row in rows})
+
+
+def find_company(query: str, rows: list[dict[str, object]]) -> str | None:
+    query_lower = query.lower()
+    for company in company_names(rows):
+        if company.lower() in query_lower:
+            return company
+    return None
+
+
+def find_year(query: str) -> int:
+    for year in (2025, 2024, 2023):
+        if str(year) in query:
+            return year
+    return LATEST_YEAR
+
+
+def get_row(rows: list[dict[str, object]], company: str, year: int) -> dict[str, object]:
+    for row in rows:
+        if row["Company"] == company and row["Fiscal Year"] == year:
+            return row
+    raise ValueError(f"No data found for {company} in {year}.")
+
+
+def pct_change(previous: int | float, current: int | float) -> float:
+    return ((current - previous) / previous) * 100
+
+
