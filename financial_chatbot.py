@@ -113,3 +113,37 @@ def cash_flow_response(rows: list[dict[str, object]], query: str) -> str:
     )
 
 
+def highest_revenue_response(rows: list[dict[str, object]], query: str) -> str:
+    year = find_year(query)
+    year_rows = [row for row in rows if row["Fiscal Year"] == year]
+    top = max(year_rows, key=lambda row: row["Total Revenue"])
+    return (
+        f"In fiscal {year}, {top['Company']} had the highest revenue among the "
+        f"three companies at {format_money(top['Total Revenue'])}."
+    )
+
+
+def strongest_growth_response(rows: list[dict[str, object]]) -> str:
+    growth_results: list[tuple[str, float]] = []
+    for company in company_names(rows):
+        start = get_row(rows, company, 2023)["Total Revenue"]
+        end = get_row(rows, company, 2025)["Total Revenue"]
+        growth_results.append((company, pct_change(start, end)))
+
+    company, growth = max(growth_results, key=lambda item: item[1])
+    return (
+        f"From 2023 to 2025, {company} had the strongest total revenue growth "
+        f"among the three companies, increasing by {format_percent(growth)}."
+    )
+
+
+def trends_response() -> str:
+    return (
+        "Main trend summary: Microsoft showed the most consistent growth across "
+        "revenue, net income, and operating cash flow. Apple remained the largest "
+        "revenue generator and delivered a strong profitability rebound in 2025. "
+        "Tesla's revenue was relatively flat and its net income declined sharply, "
+        "showing the greatest profitability pressure among the three companies."
+    )
+
+
