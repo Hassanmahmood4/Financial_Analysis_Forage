@@ -147,3 +147,50 @@ def trends_response() -> str:
     )
 
 
+def help_response(rows: list[dict[str, object]]) -> str:
+    companies = ", ".join(company_names(rows))
+    return (
+        "I can answer predefined questions about Microsoft, Tesla, and Apple "
+        "10-K data for 2023-2025. Try questions like:\n"
+        "- What is Apple's total revenue in 2025?\n"
+        "- How has Microsoft's net income changed over the last year?\n"
+        "- What is Tesla's operating cash flow in 2024?\n"
+        "- Which company had the highest revenue in 2025?\n"
+        "- Which company had the strongest revenue growth?\n"
+        "- What are the main financial trends?\n"
+        f"Available companies: {companies}."
+    )
+
+
+def simple_chatbot(user_query: str, rows: list[dict[str, object]] | None = None) -> str:
+    """Return a response for supported predefined financial questions."""
+    if rows is None:
+        rows = load_financial_data()
+
+    query = user_query.strip().lower()
+    if not query:
+        return "Please enter a financial question."
+
+    if "help" in query or "questions" in query:
+        return help_response(rows)
+    if "trend" in query or "summary" in query:
+        return trends_response()
+    if "highest" in query and "revenue" in query:
+        return highest_revenue_response(rows, query)
+    if "strongest" in query and "growth" in query:
+        return strongest_growth_response(rows)
+    if "net income" in query and (
+        "changed" in query or "change" in query or "last year" in query
+    ):
+        return net_income_change_response(rows, query)
+    if "cash flow" in query or "operating cash" in query:
+        return cash_flow_response(rows, query)
+    if "revenue" in query:
+        return revenue_response(rows, query)
+
+    return (
+        "Sorry, I can only provide information on predefined queries. "
+        "Type 'help' to see supported questions."
+    )
+
+
