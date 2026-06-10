@@ -45,16 +45,7 @@ This project demonstrates practical skills in financial data handling, Python an
 
 ## Project Workflow
 
-```mermaid
-flowchart LR
-    A[SEC EDGAR 10-K Filings] --> B[Data Extraction]
-    B --> C[financial_10k_data.csv]
-    C --> D[Jupyter Analysis]
-    D --> E[Trend Insights]
-    C --> F[Rule-Based Chatbot]
-    E --> F
-    F --> G[Predefined Financial Q&A]
-```
+![Project workflow diagram](assets/project-workflow.svg)
 
 ---
 
@@ -107,6 +98,8 @@ Additional analysis in the notebook covers:
 
 ```text
 Financial_Analysis_Forage/
+├── assets/
+│   └── project-workflow.svg            # Static project workflow diagram
 ├── financial_10k_data.csv              # Extracted 10-K dataset
 ├── financial_10k_data_millions.csv     # USD-millions version
 ├── financial_10k_data.xlsx             # Excel workbook with source notes

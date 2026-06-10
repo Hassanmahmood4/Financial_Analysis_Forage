@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="190" viewBox="0 0 920 190" role="img" aria-label="Project workflow from SEC filings to financial chatbot">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#57606a"/>
+    </marker>
+    <style>
+      .box { fill: #f6f8fa; stroke: #d0d7de; stroke-width: 1.5; }
+      .title { font: 600 12px -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; fill: #24292f; }
+      .label { font: 11px -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; fill: #24292f; }
+      .arrow { fill: none; stroke: #57606a; stroke-width: 1.5; marker-end: url(#arrow); }
+    </style>
+  </defs>
+
+  <rect class="box" x="10" y="20" width="118" height="48" rx="8"/>
+  <text class="title" x="69" y="42" text-anchor="middle">SEC EDGAR</text>
+  <text class="label" x="69" y="58" text-anchor="middle">10-K Filings</text>
+
+  <rect class="box" x="158" y="20" width="118" height="48" rx="8"/>
+  <text class="title" x="217" y="49" text-anchor="middle">Data Extraction</text>
+
+  <rect class="box" x="306" y="20" width="138" height="48" rx="8"/>
+  <text class="title" x="375" y="42" text-anchor="middle">financial_10k</text>
+  <text class="label" x="375" y="58" text-anchor="middle">data.csv</text>
+
+  <rect class="box" x="474" y="20" width="118" height="48" rx="8"/>
+  <text class="title" x="533" y="49" text-anchor="middle">Jupyter Analysis</text>
+
+  <rect class="box" x="622" y="20" width="118" height="48" rx="8"/>
+  <text class="title" x="681" y="49" text-anchor="middle">Trend Insights</text>
+
+  <rect class="box" x="474" y="112" width="138" height="48" rx="8"/>
+  <text class="title" x="543" y="134" text-anchor="middle">Rule-Based</text>
+  <text class="label" x="543" y="150" text-anchor="middle">Chatbot</text>
+
+  <rect class="box" x="770" y="112" width="138" height="48" rx="8"/>
+  <text class="title" x="839" y="134" text-anchor="middle">Predefined</text>
+  <text class="label" x="839" y="150" text-anchor="middle">Financial Q&amp;A</text>
+
+  <path class="arrow" d="M128 44 H158"/>
+  <path class="arrow" d="M276 44 H306"/>
+  <path class="arrow" d="M444 44 H474"/>
+  <path class="arrow" d="M592 44 H622"/>
+  <path class="arrow" d="M375 68 V88 H543 V112"/>
+  <path class="arrow" d="M681 68 V96 H543 H612"/>
+  <path class="arrow" d="M612 136 H770"/>
+</svg>
