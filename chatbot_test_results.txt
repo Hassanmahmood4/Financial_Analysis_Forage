@@ -1,0 +1,21 @@
+User: What is Apple's total revenue in 2025?
+Bot: In fiscal 2025, Apple reported total revenue of $416.16 billion.
+
+User: How has Microsoft's net income changed over the last year?
+Bot: Microsoft's net income increased from $88.14 billion in 2024 to $101.83 billion in 2025. That is a change of $13.70 billion, or 15.54%.
+
+User: What is Tesla's operating cash flow in 2024?
+Bot: In fiscal 2024, Tesla's cash flow from operating activities was $14.92 billion.
+
+User: Which company had the highest revenue in 2025?
+Bot: In fiscal 2025, Apple had the highest revenue among the three companies at $416.16 billion.
+
+User: Which company had the strongest revenue growth?
+Bot: From 2023 to 2025, Microsoft had the strongest total revenue growth among the three companies, increasing by 32.94%.
+
+User: What are the main financial trends?
+Bot: Main trend summary: Microsoft showed the most consistent growth across revenue, net income, and operating cash flow. Apple remained the largest revenue generator and delivered a strong profitability rebound in 2025. Tesla's revenue was relatively flat and its net income declined sharply, showing the greatest profitability pressure among the three companies.
+
+User: What was the stock price?
+Bot: Sorry, I can only provide information on predefined queries. Type 'help' to see supported questions.
+
