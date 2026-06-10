@@ -194,3 +194,51 @@ def simple_chatbot(user_query: str, rows: list[dict[str, object]] | None = None)
     )
 
 
+def run_demo(rows: list[dict[str, object]]) -> None:
+    demo_questions = [
+        "What is Apple's total revenue in 2025?",
+        "How has Microsoft's net income changed over the last year?",
+        "What is Tesla's operating cash flow in 2024?",
+        "Which company had the highest revenue in 2025?",
+        "Which company had the strongest revenue growth?",
+        "What are the main financial trends?",
+        "What was the stock price?",
+    ]
+    for question in demo_questions:
+        print(f"User: {question}")
+        print(f"Bot: {simple_chatbot(question, rows)}")
+        print()
+
+
+def run_interactive_chat(rows: list[dict[str, object]]) -> None:
+    print("Financial Analysis Chatbot Prototype")
+    print("Type 'help' for supported questions or 'exit' to quit.")
+    print()
+
+    while True:
+        user_query = input("You: ").strip()
+        if user_query.lower() in {"exit", "quit", "q"}:
+            print("Bot: Goodbye.")
+            break
+        print(f"Bot: {simple_chatbot(user_query, rows)}")
+        print()
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description="Run the financial chatbot prototype.")
+    parser.add_argument(
+        "--demo",
+        action="store_true",
+        help="Run sample chatbot questions and exit.",
+    )
+    args = parser.parse_args()
+
+    rows = load_financial_data()
+    if args.demo:
+        run_demo(rows)
+    else:
+        run_interactive_chat(rows)
+
+
+if __name__ == "__main__":
+    main()
