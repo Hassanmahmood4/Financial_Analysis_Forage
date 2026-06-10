@@ -76,3 +76,40 @@ def pct_change(previous: int | float, current: int | float) -> float:
     return ((current - previous) / previous) * 100
 
 
+def revenue_response(rows: list[dict[str, object]], query: str) -> str:
+    company = find_company(query, rows) or "Apple"
+    year = find_year(query)
+    row = get_row(rows, company, year)
+    return (
+        f"In fiscal {year}, {company} reported total revenue of "
+        f"{format_money(row['Total Revenue'])}."
+    )
+
+
+def net_income_change_response(rows: list[dict[str, object]], query: str) -> str:
+    company = find_company(query, rows) or "Microsoft"
+    current = get_row(rows, company, LATEST_YEAR)
+    previous = get_row(rows, company, PREVIOUS_YEAR)
+    current_value = current["Net Income"]
+    previous_value = previous["Net Income"]
+    change = current_value - previous_value
+    change_pct = pct_change(previous_value, current_value)
+    direction = "increased" if change >= 0 else "decreased"
+    return (
+        f"{company}'s net income {direction} from {format_money(previous_value)} "
+        f"in {PREVIOUS_YEAR} to {format_money(current_value)} in {LATEST_YEAR}. "
+        f"That is a change of {format_money(abs(change))}, or "
+        f"{format_percent(abs(change_pct))}."
+    )
+
+
+def cash_flow_response(rows: list[dict[str, object]], query: str) -> str:
+    company = find_company(query, rows) or "Microsoft"
+    year = find_year(query)
+    row = get_row(rows, company, year)
+    return (
+        f"In fiscal {year}, {company}'s cash flow from operating activities was "
+        f"{format_money(row['Cash Flow from Operating Activities'])}."
+    )
+
+
